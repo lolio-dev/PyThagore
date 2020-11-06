@@ -35,7 +35,6 @@ def calcul(unit, name_triangle, right_angle, length_side1, length_side2):
              f"      {hypothenuse} = {math.floor(math.sqrt(side1_length_squared + side2_length_squared))}\n\n" \
              f"      L'ypothénuse mesure {math.floor(math.sqrt(side1_length_squared + side2_length_squared))} {unit}"
 
-    print(result)
     return result
 
 
@@ -57,5 +56,6 @@ def findSide(name_triangle, right_angle):
 
 
 if __name__ == '__main__':
-    calcul("cm", "abc", "b", "15", "17")
+    print(calcul("cm", "abc", "b", "15", "17"))
+
 

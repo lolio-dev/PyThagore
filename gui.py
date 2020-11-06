@@ -1,13 +1,13 @@
 from tkinter import *
-from main import calcul, calcHypo
+from main import calcul
 
 root = Tk()
-root.geometry("500x300")
+root.geometry("520x350")
 
 
 def calculer():
-    hypothenuse = calcHypo(sideTriangle1Entry.get(), sideTriangle2Entry.get(), rightAngleEntry.get())
-    print(hypothenuse)
+    result = calcul(unitEntry.get(), nameEntry.get(), rightAngleEntry.get(), side1Entry.get(), side2Entry.get())
+    resultLabel.config(text=result)
 
 
 unitLabel = Label(root, text="entrer l'unité des longueur du triangle rectangle: ")
@@ -28,19 +28,23 @@ rightAngleLabel.grid(column=0, row=3)
 rightAngleEntry = Entry(root)
 rightAngleEntry.grid(column=1, row=3)
 
-sideTriangle1Label = Label(root, text="entrer le nom d'un des coté de l'angle droit")
-sideTriangle1Label.grid(column=0, row=4)
+side1Label = Label(root, text="Entrer la longueur du premier coté de langle droit: ")
+side1Label.grid(column=0, row=4)
 
-sideTriangle1Entry = Entry(root)
-sideTriangle1Entry.grid(column=1, row=4)
+side1Entry = Entry(root)
+side1Entry.grid(column=1, row=4)
 
-sideTriangle2Label = Label(root, text="entrer le nom du deuxieme coté de l'angle droit")
-sideTriangle2Label.grid(column=0, row=5)
+side2Label = Label(root, text="Entrer la longueur du deuxieme coté de langle droit: ")
+side2Label.grid(column=0, row=5)
 
-sideTriangle2Entry = Entry(root)
-sideTriangle2Entry.grid(column=1, row=5)
+side2Entry = Entry(root)
+side2Entry.grid(column=1, row=5)
 
-btnTest = Button(text="test", command=calculer)
-btnTest.grid(column=0, row=6)
+
+btnCalculer = Button(text="calculer", command=calculer)
+btnCalculer.grid(column=0, row=6, pady=20)
+
+resultLabel = Label(root, text="")
+resultLabel.grid(column=0, row=7)
 
 root.mainloop()
