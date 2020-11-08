@@ -75,6 +75,15 @@ class App(QtWidgets.QWidget):
         self.labelCalculResult.setText(main_calcul(self.unit, self.nameTriangle, self.rightAngle, self.lenghtSide1, self.lenghtSide2))
         print(self.geometry())
 
+    def not_units(self):
+        # afficher pop up danger
+        pass
+
+    def not_digits(self):
+        # afficher pop up danger
+        pass
+
+
 app = QtWidgets.QApplication([])
 win = App()
 win.show()

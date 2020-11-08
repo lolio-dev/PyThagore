@@ -8,10 +8,12 @@ def calcul(unit, name_triangle, right_angle, length_side1, length_side2):
 
     if not unit in units:
         print("veuillez n'entrer que une unité de longueur valide")
+        # fonction pop up
         sys.exit()
 
     if not length_side1.isdigit() or not length_side2.isdigit():
         print("Vous ne devez entrer que des nombres, pas de lettre ni de caractere speciaux")
+        # fonction pop up
         sys.exit()
 
     all_sides = findSide(name_triangle, right_angle)
@@ -25,8 +27,7 @@ def calcul(unit, name_triangle, right_angle, length_side1, length_side2):
     side2_length_squared = int(length_side2) ** 2
 
     result = f"le triangle {name_triangle} est rectangle en {right_angle} d'hypothenuse [{hypothenuse}]\n" \
-             f"d'après le théoreme de phytagore:\n" \
-             f"" \
+             f"d'après le théoreme de Pythagore:\n" \
              f"{hypothenuse}² = {sideTriangle1}² + {sideTriangle2}²\n" \
              f"{hypothenuse}² = {length_side1}² + {length_side2}²\n" \
              f"{hypothenuse}² = {side1_length_squared} + {side2_length_squared}\n" \
@@ -34,7 +35,7 @@ def calcul(unit, name_triangle, right_angle, length_side1, length_side2):
              f"{hypothenuse}² = √{side1_length_squared + side2_length_squared}\n" \
              f"{hypothenuse} = {math.sqrt(side1_length_squared + side2_length_squared)}\n" \
              f"{hypothenuse} = {math.floor(math.sqrt(side1_length_squared + side2_length_squared))}\n\n" \
-             f"L'ypothénuse mesure {math.floor(math.sqrt(side1_length_squared + side2_length_squared))} {unit}"
+             f"L'Hypothénuse mesure {math.floor(math.sqrt(side1_length_squared + side2_length_squared))} {unit}"
 
     return result
 
