@@ -1,20 +1,7 @@
-# import des bibliothèques
 import math
-import sys
 
 
 def calcul(unit, name_triangle, right_angle, length_side1, length_side2):
-    units = ["km", "hm", "dam", "m", "dm", "cm", "mm"]
-
-    if not unit in units:
-        print("veuillez n'entrer que une unité de longueur valide")
-        # fonction pop up
-        sys.exit()
-
-    if not length_side1.isdigit() or not length_side2.isdigit():
-        print("Vous ne devez entrer que des nombres, pas de lettre ni de caractere speciaux")
-        # fonction pop up
-        sys.exit()
 
     all_sides = findSide(name_triangle, right_angle)
 
@@ -58,6 +45,6 @@ def findSide(name_triangle, right_angle):
 
 
 if __name__ == '__main__':
-    print(calcul("cm", "abc", "b", "15", "17"))
+    pass
 
 

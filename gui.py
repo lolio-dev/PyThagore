@@ -72,16 +72,42 @@ class App(QtWidgets.QWidget):
         self.rightAngle = self.entryRightAngle.text()
         self.lenghtSide1 = self.entryLenghtSide1.text()
         self.lenghtSide2 = self.entryLenghtSide2.text()
-        self.labelCalculResult.setText(main_calcul(self.unit, self.nameTriangle, self.rightAngle, self.lenghtSide1, self.lenghtSide2))
-        print(self.geometry())
 
-    def not_units(self):
-        # afficher pop up danger
-        pass
+        unit = self.verify_numbers()
+        numbers = self.verify_units()
 
-    def not_digits(self):
-        # afficher pop up danger
-        pass
+        if unit and numbers:
+            self.labelCalculResult.setText(main_calcul(self.unit, self.nameTriangle, self.rightAngle, self.lenghtSide1, self.lenghtSide2))
+
+    def verify_units(self):
+        units = ["km", "hm", "dam", "m", "dm", "cm", "mm"]
+        unit = self.entryUnit.text()
+
+        if not unit in units:
+            self.pop_up("Vous ne devez entrer que des unités de longueur valide")
+            return False
+        else:
+            return True
+
+    def verify_numbers(self):
+        if not self.entryLenghtSide1.text().isdigit() or not self.entryLenghtSide2.text().isdigit():
+            self.pop_up("Vous devez entrer uniquement des nombres et non des lettres ou caractères spéciaux")
+            return False
+        else:
+            return True
+
+    def pop_up(self, text):
+        dialog = QtWidgets.QMessageBox()
+        dialog.setIcon(QtWidgets.QMessageBox.Warning)
+        dialog.setWindowTitle("Attention")
+
+        dialog.setText("Attention !")
+        dialog.setInformativeText(text)
+
+        dialog.setStandardButtons(QtWidgets.QMessageBox.Ok)
+
+        dialog.exec_()
+        return True
 
 
 app = QtWidgets.QApplication([])
