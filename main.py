@@ -26,14 +26,15 @@ def calcul(unit, name_triangle, right_angle, length_side1, length_side2):
 
     result = f"le triangle {name_triangle} est rectangle en {right_angle} d'hypothenuse [{hypothenuse}]\n" \
              f"d'après le théoreme de phytagore:\n" \
-             f"on a: {hypothenuse}² = {sideTriangle1}² + {sideTriangle2}²\n" \
-             f"      {hypothenuse}² = {length_side1}² + {length_side2}²\n" \
-             f"      {hypothenuse}² = {side1_length_squared} + {side2_length_squared}\n" \
-             f"      {hypothenuse}² = {side1_length_squared + side2_length_squared}\n" \
-             f"      {hypothenuse}² = √{side1_length_squared + side2_length_squared}\n" \
-             f"      {hypothenuse} = {math.sqrt(side1_length_squared + side2_length_squared)}\n" \
-             f"      {hypothenuse} = {math.floor(math.sqrt(side1_length_squared + side2_length_squared))}\n\n" \
-             f"      L'ypothénuse mesure {math.floor(math.sqrt(side1_length_squared + side2_length_squared))} {unit}"
+             f"" \
+             f"{hypothenuse}² = {sideTriangle1}² + {sideTriangle2}²\n" \
+             f"{hypothenuse}² = {length_side1}² + {length_side2}²\n" \
+             f"{hypothenuse}² = {side1_length_squared} + {side2_length_squared}\n" \
+             f"{hypothenuse}² = {side1_length_squared + side2_length_squared}\n" \
+             f"{hypothenuse}² = √{side1_length_squared + side2_length_squared}\n" \
+             f"{hypothenuse} = {math.sqrt(side1_length_squared + side2_length_squared)}\n" \
+             f"{hypothenuse} = {math.floor(math.sqrt(side1_length_squared + side2_length_squared))}\n\n" \
+             f"L'ypothénuse mesure {math.floor(math.sqrt(side1_length_squared + side2_length_squared))} {unit}"
 
     return result
 
