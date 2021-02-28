@@ -6,6 +6,7 @@ class App(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Théoreme Pythagore")
+        self.setWindowIcon(QtGui.QIcon("bleach.png"))
         self.setup_ui()
         self.resize(525, 425)
 
@@ -77,26 +78,30 @@ class App(QtWidgets.QWidget):
         numbers = self.verify_units()
 
         if unit and numbers:
-            self.labelCalculResult.setText(main_calcul(self.unit, self.nameTriangle, self.rightAngle, self.lenghtSide1, self.lenghtSide2))
+            self.labelCalculResult.setText(main_calcul(self.unit, self.nameTriangle, self.rightAngle, self.lenghtSide1,
+                                                       self.lenghtSide2))
 
     def verify_units(self):
         units = ["km", "hm", "dam", "m", "dm", "cm", "mm"]
         unit = self.entryUnit.text()
 
         if not unit in units:
-            self.pop_up("Vous ne devez entrer que des unités de longueur valide")
+            msg = "Vous ne devez entrer que des unités de longueur valide"
+            self.pop_up(msg)
             return False
         else:
             return True
 
     def verify_numbers(self):
+        msg = "Vous devez entrer uniquement des nombres et non des lettres ou caractères spéciaux"
         if not self.entryLenghtSide1.text().isdigit() or not self.entryLenghtSide2.text().isdigit():
-            self.pop_up("Vous devez entrer uniquement des nombres et non des lettres ou caractères spéciaux")
+            self.pop_up(msg)
             return False
         else:
             return True
 
-    def pop_up(self, text):
+    @staticmethod
+    def pop_up(text):
         dialog = QtWidgets.QMessageBox()
         dialog.setIcon(QtWidgets.QMessageBox.Warning)
         dialog.setWindowTitle("Attention")
