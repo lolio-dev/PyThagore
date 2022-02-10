@@ -53,4 +53,4 @@ def find_side(name_triangle, right_angle):
 
 
 if __name__ == '__main__':
-    print(calcul("cm", "abc", "b", 1000000000000, 1000000000000))
+    print(calcul("cm", "abc", "b", 6, 8))
